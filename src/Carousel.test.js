@@ -50,7 +50,7 @@ it("works when you click on the left arrow", function() {
 it("hides the left arrow at first image in carousel", function() {
   const { queryByTestId } = render(<Carousel />);
 
-  expect(queryByTestId("left-arrow")).not.toBeInTheDocument();
+  expect(queryByTestId("left-arrow")).not.toBeVisible();
 });
 
 it("hides the right arrow at last image in carousel", function() {
@@ -61,5 +61,5 @@ it("hides the right arrow at last image in carousel", function() {
     fireEvent.click(rightArrow);
     fireEvent.click(rightArrow);
 
-  expect(queryByTestId("right-arrow")).not.toBeInTheDocument();
+  expect(queryByTestId("right-arrow")).not.toBeVisible();
 });
