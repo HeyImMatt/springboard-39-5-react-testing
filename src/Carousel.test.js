@@ -47,3 +47,19 @@ it("works when you click on the left arrow", function() {
   expect(queryByAltText("Photo by Richard Pasquarella on Unsplash")).toBeInTheDocument();
 });
 
+it("hides the left arrow at first image in carousel", function() {
+  const { queryByTestId } = render(<Carousel />);
+
+  expect(queryByTestId("left-arrow")).not.toBeInTheDocument();
+});
+
+it("hides the right arrow at last image in carousel", function() {
+  const { queryByTestId } = render(<Carousel />);
+
+    // move forward in the carousel to end
+    const rightArrow = queryByTestId("right-arrow");
+    fireEvent.click(rightArrow);
+    fireEvent.click(rightArrow);
+
+  expect(queryByTestId("right-arrow")).not.toBeInTheDocument();
+});
